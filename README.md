@@ -1,6 +1,6 @@
 # node-crashreporter
-
-node-crashreporter [![Build Status](https://travis-ci.org/sdolard/node-crashreporter.png?branch=master)](https://travis-ci.org/sdolard/node-crashreporter)[![Build Dependency](https://david-dm.org/sdolard/node-crashreporter.png)](https://david-dm.org/sdolard/node-crashreporter)
+This is a fork from 
+node-crashreporter [![Build Status](https://travis-ci.org/cbohm/node-crashreporter.png?branch=master)](https://travis-ci.org/sdolard/node-crashreporter)[![Build Dependency](https://david-dm.org/sdolard/node-crashreporter.png)](https://david-dm.org/sdolard/node-crashreporter)
 
 Dump node context into a file on process crash, send it by mail
 
@@ -28,12 +28,18 @@ require('crashreporter').configure({
 });
 ```
 
-### Advanced: send mail
+### Advanced: send mail. Get crashreporter-emailTransport
 
 See <http://www.nodemailer.com/> for support
 
 ```javascript
-require('crashreporter').configure({
+var crashReporter = require('crashreporter').configure({
+    outDir: [your out directory], // default to cwd
+    exitOnCrash: [true|false] // if you want that crash reporter exit(1) for you, default to true,
+    maxCrashFile: [number] // older files will be removed up, default 5 files are kept
+}
+);
+var emailTransport = require('crashreporter-emailTransport').configure({
     mailEnabled: true,
     mailTransportName: 'SMTP',
     mailTransportConfig: {
@@ -47,6 +53,8 @@ require('crashreporter').configure({
     mailFrom: 'crashreporter <yourmail@gmail.com>',
     mailTo: 'yourmail@gmail.com'
 });
+
+crashReporter.addTransport(emailTransport);
 ```
 
 ### Hidden Attributes

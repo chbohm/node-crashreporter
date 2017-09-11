@@ -8,4 +8,6 @@ describe('CrashReporter', function(){
 			assert.deepEqual(process.listeners('uncaughtException').length, 2);
 		});
 	});
+
+	
 });

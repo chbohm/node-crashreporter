@@ -1,14 +1,13 @@
 {
-  "name": "crashreporter",
+  "name": "crashreporter-core",
   "version": "1.1.0",
-  "description": "Dump node context into a file on process crash, send it by mail",
+  "description": "Dump node context into a file on process crash. If you want sending emails download email transport",
   "directories": {
     "example": "example",
     "test": "test"
   },
   "dependencies": {
-    "mkdirp": "^0.5.1",
-    "nodemailer": "^2.5.0"
+    "mkdirp": "^0.5.1"
   },
   "devDependencies": {
     "mocha": "x.x.x"
@@ -18,18 +17,17 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/sdolard/node-crashreporter.git"
+    "url": "git+ssh://git@github.com/cbohm/node-crashreporter.git"
   },
   "author": "sdolard@gmail.com, joaquinicolas",
   "license": "BSD-2-Clause",
   "bugs": {
-    "url": "https://github.com/sdolard/node-crashreporter/issues"
+    "url": "https://github.com/cbohm/node-crashreporter/issues"
   },
-  "homepage": "https://github.com/sdolard/node-crashreporter",
+  "homepage": "https://github.com/cbohm/node-crashreporter",
   "main": "lib/crashreporter.js",
   "keywords": [
     "crash",
-    "report",
-    "mail"
+    "report"
   ]
 }
